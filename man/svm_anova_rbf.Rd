@@ -8,7 +8,7 @@ svm_anova_rbf(
   mode = "unknown",
   engine = "kernlab",
   cost = NULL,
-  anova_rbf_sigma = NULL,
+  rbf_sigma = NULL,
   degree = NULL,
   margin = NULL
 )
@@ -21,7 +21,7 @@ svm_anova_rbf(
 \item{cost}{A positive number for the cost of predicting a sample within
 or on the wrong side of the margin}
 
-\item{anova_rbf_sigma}{sigma parameter for anova rbf}
+\item{rbf_sigma}{sigma parameter for anova rbf}
 
 \item{degree}{degree parameter for anova rbf}
 

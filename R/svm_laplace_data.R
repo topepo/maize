@@ -10,6 +10,7 @@ make_svm_laplace <- function() {
   parsnip::set_model_engine("svm_laplace", "classification", "kernlab")
   parsnip::set_model_engine("svm_laplace", "regression", "kernlab")
   parsnip::set_dependency("svm_laplace", "kernlab", "kernlab")
+  parsnip::set_dependency("svm_laplace", "kernlab", "maize")
 
   parsnip::set_model_arg(
     model = "svm_laplace",
@@ -34,7 +35,7 @@ make_svm_laplace <- function() {
     eng = "kernlab",
     parsnip = "laplace_sigma",
     original = "sigma",
-    func = list(pkg = "dials", fun = "svm_margin"),
+    func = list(pkg = "maize", fun = "laplace_sigma"),
     has_submodel = FALSE
   )
 
@@ -47,7 +48,7 @@ make_svm_laplace <- function() {
      data = c(formula = "x", data = "data"),
       protect = c("x", "data"),
       func = c(pkg = "kernlab", fun = "ksvm"),
-      defaults = list(kernel = "laplacedot") 
+      defaults = list(kernel = "laplacedot")
     )
   )
 
@@ -60,7 +61,7 @@ make_svm_laplace <- function() {
       data = c(formula = "x", data = "data"),
      protect = c("x", "data"),
      func = c(pkg = "kernlab", fun = "ksvm"),
-     defaults = list(kernel = "laplacedot") 
+     defaults = list(kernel = "laplacedot")
     )
   )
 

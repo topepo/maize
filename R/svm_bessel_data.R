@@ -10,7 +10,6 @@ make_svm_bessel <- function() {
   parsnip::set_model_engine("svm_bessel", "classification", "kernlab")
   parsnip::set_model_engine("svm_bessel", "regression", "kernlab")
   parsnip::set_dependency("svm_bessel", "kernlab", "kernlab")
-  parsnip::set_dependency("svm_bessel", "kernlab", "maize")
 
   parsnip::set_model_arg(
     model = "svm_bessel",
@@ -26,7 +25,7 @@ make_svm_bessel <- function() {
     eng = "kernlab",
     parsnip = "degree",
     original = "degree",
-    func = list(pkg = "dials", fun = "degree_int", range = c(1L, 5L)),
+    func = list(pkg = "dials", fun = "degree"),
     has_submodel = FALSE
   )
 
@@ -35,7 +34,7 @@ make_svm_bessel <- function() {
     eng = "kernlab",
     parsnip = "order",
     original = "order",
-    func = list(pkg = "maize", fun = "bessel_order"),
+    func = list(pkg = "dials", fun = "order"),
     has_submodel = FALSE
   )
 
@@ -44,7 +43,7 @@ make_svm_bessel <- function() {
     eng = "kernlab",
     parsnip = "bessel_sigma",
     original = "sigma",
-    func = list(pkg = "maize", fun = "bessel_sigma"),
+    func = list(pkg = "dials", fun = "bessel_sigma"),
     has_submodel = FALSE
   )
 
@@ -189,5 +188,3 @@ make_svm_bessel <- function() {
     )
   )
 }
-
-

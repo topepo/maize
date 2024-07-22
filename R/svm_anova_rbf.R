@@ -7,16 +7,16 @@
 #' @param margin A positive number for the epsilon in the SVM insensitive
 #'  loss function (regression only)
 #' @param degree degree parameter for anova rbf
-#' @param rbf_sigma sigma parameter for anova rbf
+#' @param anova_rbf_sigma sigma parameter for anova rbf
 #' @export
 
 svm_anova_rbf <-
   function(mode = "unknown", engine = "kernlab",
-           cost = NULL, rbf_sigma = NULL, degree = NULL, margin = NULL) {
+           cost = NULL, anova_rbf_sigma = NULL, degree = NULL, margin = NULL) {
 
     args <- list(
       cost             = enquo(cost),
-      rbf_sigma        = enquo(rbf_sigma),
+      anova_rbf_sigma  = enquo(anova_rbf_sigma),
       degree           = enquo(degree),
       margin           = enquo(margin)
     )
@@ -41,13 +41,13 @@ svm_anova_rbf <-
 update.svm_anova_rbf <-
   function(object,
            parameters = NULL,
-           cost = NULL, rbf_sigma = NULL, degree = NULL, margin = NULL,
+           cost = NULL, anova_rbf_sigma = NULL, degree = NULL, margin = NULL,
            fresh = FALSE,
            ...) {
 
     args <- list(
       cost             = enquo(cost),
-      rbf_sigma        = enquo(rbf_sigma),
+      anova_rbf_sigma  = enquo(anova_rbf_sigma),
       degree           = enquo(degree),
       margin           = enquo(margin)
     )

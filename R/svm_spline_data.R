@@ -1,5 +1,5 @@
 make_svm_spline <- function() {
-
+  
   parsnip::set_new_model("svm_spline")
 
   parsnip::set_model_mode("svm_spline", "classification")
@@ -9,7 +9,6 @@ make_svm_spline <- function() {
   parsnip::set_model_engine("svm_spline", "classification", "kernlab")
   parsnip::set_model_engine("svm_spline", "regression", "kernlab")
   parsnip::set_dependency("svm_spline", "kernlab", "kernlab")
-  parsnip::set_dependency("svm_spline", "kernlab", "maize")
 
   parsnip::set_model_arg(
     model = "svm_spline",
@@ -75,7 +74,7 @@ make_svm_spline <- function() {
     value = list(
       pre = NULL,
       post = \(results, object) {
-        results[,1, drop = FALSE]
+        results[,1]
       },
       func = c(pkg = "kernlab", fun = "predict"),
       args =
